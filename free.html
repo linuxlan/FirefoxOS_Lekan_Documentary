@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="height=device-height,width=device-width,user-scalable=no,target-densitydpi=device-dpi"/>
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=2.0,Transition=6)" />
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/free.css">
+</head>
+<body>
+<div class="head clrfix">
+    <div class="title">免费体验</div>
+    <div class="logo">
+        <a href="index.html"><img src="./images/logo.png" style="width:71.5px;height:30.5px;" /></a>
+    </div>
+</div>
+
+<div class="content">
+    <ul id="list">
+    <li class="item clrfix" style="display:none;">
+        <div class="tip">
+            测试一下巴巴爸爸    
+        </div>
+        <div class="btns">
+            <img id="player" style="width:28px;height:28px;" src="images/free_btns_play_default.png"/>
+            <img id="transfrom" style="width:28px;height:28px;" src="images/free_btn_open_tip_default.png" class="upArrow"/>
+        </div>
+        <div class="fade_in_tip tip_info" style="display:none;">
+            <div class="tip_score">
+            
+            </div>
+            <div class="tip_type">
+                分类:阿萨德发离开家路上的风景阿
+            </div>
+            <div class="tip_free_time">
+                限时免费: 1天2小时
+            </div>
+            <div class="tip_content">
+            "火山，地球上最根本的自然力量，它是地球系统的一部分，它们一直在改变着地貌，火山在很大程度上决定了地球的生命起源。火山和地球生命相互依存，给地球生物提供了适宜生存的环境。 地球是茫茫宇宙星系中唯一生机勃勃万物生存的星球，它瞬息万变、充满自然奇观的世界。BBC年度巨献《地球的力量》(Earth-ThePower of the Planet)，历时3年制作，通过对地球生命的神秘实录，通过表现大自然美丽景象，配合动人美妙配乐，将地球的魅力在大银幕上毫无保留的完美呈现出来，旨在呼吁人们保护环境。"
+            </div>
+        </div>
+    </li>
+    </ul>
+</div>
+
+<script src="js/lib/jquery-1.9.1.js"></script>
+<script src="js/lib/jquery.raty.min.js"></script>
+<script src="js/data.js"></script>
+<script>
+$(function(){
+    
+
+   data.list.forEach(function(item){
+       console.log(item);
+       var item_div = "<li class=\"item clrfix\" ><div style=\"background: url("+item.lineImg+") center center no-repeat;background-size: 100% 100%; height:105px;\"><div class=\"tip\">"+item.idxName+"</div><div class=\"btns\"> \
+          <a href=\"video.html\"><img id=\"player\" class=\"playbtn\" style=\"width:28px;height:28px;\" src=\"images/free_btns_play_default.png\"/></a> \
+           <img id=\"transfrom\" onclick=\"changeArror(this)\"  style=\"width:28px;height:28px;\" src=\"images/free_btn_open_tip_default.png\" class=\"upArrow\"/></div></div><div class=\"tip_info fade_in_tip \" style=\"display:none;\"><div class=\"clrfix\"><div data-number=\""+parseInt(item.point)/2+"\" class=\"tip_score\"></div><span class=\"num\">"+parseInt(item.point)+"</span><span class=\"num_tip\">.0分</span></div><div class=\"tip_type\">分类:"+item.taginfo+"</div><div class=\"tip_free_time\">限时免费:"+getDay(item.expire)+" </div><div class=\"tip_content\">"+item.info+"</div></div></li>";
+     $("#list").append(item_div);
+   });
+
+    $(".tip_score").raty({
+        hints: ['2', '4', '6', '8', '10'],
+        path:"./images/",
+        starOff: 'star_clean.png',
+        starOn: 'star_selected.png',
+        width:"51%",
+        score: function() {
+            return $(this).attr('data-number');
+       },
+       click: function(score, evt) {
+           var num_obj = $(this).parent().find(".num");
+           num_obj.html(parseInt(score)*2);
+       }
+    });
+    $(".playbtn").mousedown(function(){
+        var img_src = $(this).attr("src");
+        $(this).attr("src",img_src.replace(/default/, "click"));
+    });
+    $(".playbtn").mouseup(function(){
+        var img_src = $(this).attr("src");
+        $(this).attr("src",img_src.replace(/click/, "default"));
+    });
+    $(".playbtn").mouseout(function(){
+        var img_src = $(this).attr("src");
+        $(this).attr("src",img_src.replace(/click/, "default"));
+    });
+});
+
+function changeArror(obj){
+    var curr_css = $(obj).attr("class");
+    $(obj).removeClass(curr_css);
+    if ( curr_css === "upArrow" ) {
+        $(obj).addClass("downArrow");
+        $(obj).parent().parent().parent().find(".tip_info").removeClass().addClass("fade_in_tip").addClass("tip_info").show("slow").fadeIn("slow");
+    }
+    else {
+        $(obj).addClass("upArrow");
+        $(obj).parent().parent().parent().find(".tip_info").removeClass().addClass("fade_in_tip").addClass("tip_info").hide("slow").fadeOut("slow");
+//        $(obj).parent().parent().parent().find(".tip_info").fadeOut("slow").hide();
+    }
+} 
+
+function getDay(t) {
+    var e_time = (new Date(t.replace(/-/g, "/")).getTime() - new Date().getTime())/1000/3600/24;
+    if ( e_time <= 0 ) {
+        return "0天0小时";
+    }
+    var e_hover = parseInt(e_time.toString().replace(/\d*\./g, "0."));
+    var e_day = e_time.toString().replace(/\.\d*/g,"");
+    return e_day+"天"+e_hover+"小时";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+body{
+    margin:0px;
+    padding:0px;
+    background:url(../images/sub_background.png);
+    width:100%;
+    height:100%;
+    -moz-user-select:none;
+}
+
+.head {
+    background: url(../images/header.png) center center no-repeat;
+    background-size: 100% 100%;
+    height:48px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    width:100%;
+}
+
+.head .title {
+    color:#fff;
+    font-size:30px;
+    padding:1px;
+    margin-left:10px;
+    float:left;
+}
+
+.logo {
+    float:right;
+    padding:10px;
+}
+
+.content {
+    margin-top:80px;
+}
+
+.content ul{
+    list-style:none;
+    color:#fff;
+}
+
+.content ul li {
+    margin-bottom:5px;
+}
+
+.content a {
+    color:#fff;    
+}
+
+.item{
+    position:relative;
+}
+
+.tip {
+    position:absolute;
+    background : url(../images/free_tip_background.png) center center no-repeat;
+    background-size: 100% 100%;
+    top:0;
+    right:20px;
+    font-size:14px;
+    text-align:center;
+    width:150px;
+    height:28px;
+}
+
+.btns {
+    position:absolute;
+    top:70px;
+    right:20px;
+    padding-left:20px;
+}
+
+.btns img{
+    margin-left:20px;
+}
+
+.tip_info{
+    padding:5px;
+    background : url(../images/free_tip_info_background.png) center center no-repeat;
+    background-size: 100% 100%;
+    height:240px;
+    padding:10px;
+}
+
+.tip_score {
+    float:left;
+}
+.num {
+    float:left;
+    color:#0a95d5;
+    font-size:25px;
+    margin-top:-5px;
+}
+.num_tip {
+    font-size:15px;
+    color:#0a95d5;
+    float:left;
+    margin-top:5px;
+}
+
+.tip_type {
+    font-size:13px;
+    color:rgba(220,220,220,1);
+    margin-top:5px;
+}
+
+.tip_free_time {
+    background : url(../images/time_ico.png) 0  0 no-repeat;
+    background-size: 20px 20px;
+    width:80%;
+    height:20px;
+    padding-left:25px;
+    font-size:16px;
+    color:rgba(246,128,38,1);
+    margin-top:5px;
+}
+
+.tip_content {
+    font-size:16px;
+    color:rgba(220,220,220,1);
+    margin-top:15px;
+    max-height: 130px;
+    overflow-y: scroll;
+}
+
+.someWidget
+{
+    display:none;
+}
+
+.upArrow{
+    -webkit-transform: rotate(180deg);
+    -webkit-transition: -webkit-transform .5s ease-in;
+    -moz-transform: rotate(180deg);
+    -moz-transition: -moz-transform .5s ease-in;    
+}
+
+.fade_in_tip {
+    opacity: 1;
+    transition: opacity 0.10s ease-in-out;
+    -moz-transition: opacity 0.10s ease-in-out;
+}
+
+.fade_out_tip {
+    opacity: 0;
+    transition: opacity 9.25s ease-in-out;
+    -moz-transition: opacity 9.25s ease-in-out;
+}
+.downArrow {
+    -webkit-transform: rotate(0deg);
+    -webkit-transition: -webkit-transform .5s ease-in;    
+    -moz-transform: rotate(0deg);
+    -moz-transition: -moz-transform .5s ease-in;    
+}

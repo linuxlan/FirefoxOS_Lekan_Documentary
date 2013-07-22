@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "name": "documentary",
+  "type": "privileged",
+  "launch_path": "index.html",
+  "description": "乐看纪录片",
+   "icons": {
+    "16": "/applogos/logo16.png",
+    "32": "/applogos/logo32.png",
+    "48": "/applogos/logo48.png",
+    "64": "/applogos/logo64.png",
+    "128": "/applogos/logo128.png"
+  },
+  "developer": {
+    "name": "EricYe",
+    "url": "http://ericye.in"
+  },
+  "permissions":{
+      "systemXHR": {}
+  },
+  "installs_allowed_from": ["*"],
+  "default_locale": "zh-cn"
+}

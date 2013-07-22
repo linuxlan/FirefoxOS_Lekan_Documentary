@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="height=device-height,width=device-width,user-scalable=no,target-densitydpi=device-dpi"/>
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=2.0,Transition=6)" />
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+    <body>
+        <div class="body">
+           <div id="page" class="page"></div>
+                <ul class="top">
+                    <li class="clrfix"><a>1111111</a><b></b></li>
+                    <li class="clrfix">2222222</li>
+                </ul>
+           <div class="center clrfix">
+                <div class="menu">
+                    <ul class="clrfix">
+                        <li class="index_free"><a  href="free.html"><img class="menubtn"  style="width:127.5px;height:57px;"  src="images/index_menu_free_default.png"/></a></li>
+                        <li class="index_video"><a href="video.html"><img  class="menubtn"  style="width:94.5px;height:57px;" src="images/index_menu_videodb_default.png"/></a></li>
+                        <li class="index_find"><a href="javascript:void(0);"><img  class="menubtn"  style="width:127.5px;height:57px;" src="images/index_menu_find_interest_default.png"/></a></li>
+                        <li class="index_rl"><a href="javascript:void(0);"><img  class="menubtn"  style="width:139.5px;height:57px;" src="images/index_menu_login_or_register_default.png"/></a></li>
+                    </ul>
+                </div>
+           </div> 
+           <div class="footer clrfix">
+                <div class="news">
+                    <ul class="">
+                        <li><a>1111111</a></li>
+                        <li>2222222</li>
+                        <li>3333333</li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <a href="javascript:void(0)"><img style="width:71.5px;height:30.5px;" src="./images/logo.png"/></a> 
+                </div>
+           </div> 
+        </div>
+        <script src="js/lib/jquery-1.9.1.js"></script>
+        <script>
+            $(function() {
+                var oH = $(document).height();
+                var oW = $(document).width();
+                var el = $(".center");
+                var footer = $(".footer");
+                var page = $("#page");
+                page.height(oH);
+                page.width(oW);
+                el.css("top", (oH - el.height())/2 + "px"); 
+                el.css("left", (oW - el.width())/2 + "px"); 
+                $(".menubtn").mousedown(function(){
+                    var img_src = $(this).attr("src");
+                    $(this).attr("src",img_src.replace(/default/, "click"));
+                });
+                $(".menubtn").mouseup(function(){
+                    var img_src = $(this).attr("src");
+                    $(this).attr("src",img_src.replace(/click/, "default"));
+                });
+                $(".menubtn").mouseout(function(){
+                    var img_src = $(this).attr("src");
+                    $(this).attr("src",img_src.replace(/click/, "default"));
+                });
+            });
+        </script>
+    </body>
+</html>
